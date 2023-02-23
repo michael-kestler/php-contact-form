@@ -7,7 +7,11 @@ if($_POST){
     if(empty($_POST['email'])) {
         $emailErr = "Email is required.";
     } else {
+        //check if email address is correct format
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         $email = test_input($_POST['email']);
+    }    
+       
     }
 }
 
@@ -37,19 +41,19 @@ function test_input($data) {
 
 
 
-if($_POST) {
+// if($_POST) {
 
 
     
 
-    // echo ("Your message was sent's email is " . $_POST['email'] . "<br><br>");
+//     // echo ("Your message was sent's email is " . $_POST['email'] . "<br><br>");
 
-    // echo ("The subject is " . $_POST['subject'] . "<br><br>");
+//     // echo ("The subject is " . $_POST['subject'] . "<br><br>");
       
-    // echo ("Here is the body: " . $_POST['body'] . "<br><br>");
+//     // echo ("Here is the body: " . $_POST['body'] . "<br><br>");
 
     
-}
+// }
 ?>   
 
 <!DOCTYPE html>
