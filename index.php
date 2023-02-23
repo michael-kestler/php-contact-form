@@ -75,6 +75,7 @@ function test_input($data) {
         </fieldset>
         <input type="submit" class="btn btn-primary" name="submit" value="Submit">
     </form>
+    <br><br>
        
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </div>
@@ -83,10 +84,10 @@ function test_input($data) {
 
 
 <?php
-echo "<h2>Your Input</>";
-echo $name;
+echo "<h2>Your Input</h2>";
+echo "Email address: " . $email;
 echo "<br>";
-echo $subject;
+echo "Subject: " . $subject;
 echo "<br>";
-echo $body;
+echo "Message: " . $body;
 ?>
