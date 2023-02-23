@@ -39,21 +39,6 @@ function test_input($data) {
     return $data;
 }
 
-
-
-// if($_POST) {
-
-
-    
-
-//     // echo ("Your message was sent's email is " . $_POST['email'] . "<br><br>");
-
-//     // echo ("The subject is " . $_POST['subject'] . "<br><br>");
-      
-//     // echo ("Here is the body: " . $_POST['body'] . "<br><br>");
-
-    
-// }
 ?>   
 
 <!DOCTYPE html>
@@ -95,3 +80,13 @@ function test_input($data) {
 </div>
 </body>
 </html>
+
+
+<?php
+echo "<h2>Your Input</>";
+echo $name;
+echo "<br>";
+echo $subject;
+echo "<br>";
+echo $body;
+?>
