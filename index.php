@@ -1,13 +1,55 @@
 <?php
-    
+
+
+
+//define error variables and set to empty values
+$emailErr = $subjErr = $bodyErr = "";
+
+if($_SERVER['REQUEST METHOD'] == 'POST'){
+    if(empty($_POST['email'])) {
+        $emailErr = "Email is required.";
+    } else {
+        $email = test_input($_POST['email']);
+    }
+}
+
+if($_SERVER['REQUEST METHOD'] == 'POST'){
+    if(empty($_POST['subject'])) {
+       $subjErr = "Subject is required.";
+    } else {
+        $subject = test_input($_POST['subject']);
+    }
+}
+
+    if(empty($_POST['body'])) {
+        $bodyErr = "Body is required.";
+    } else {
+        $body = test_input($_POST['body']);
+    }
+
+
+
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+
+
 if($_POST) {
 
-    echo ("Your message was sent's email is " . $_POST['email'] . "<br><br>");
 
-    echo ("The subject is " . $_POST['subject'] . "<br><br>");
+    
+
+    // echo ("Your message was sent's email is " . $_POST['email'] . "<br><br>");
+
+    // echo ("The subject is " . $_POST['subject'] . "<br><br>");
       
-    echo ("Here is the body: " . $_POST['body'] . "<br><br>");  
+    // echo ("Here is the body: " . $_POST['body'] . "<br><br>");
 
+    
 }
 ?>   
 
@@ -23,7 +65,7 @@ if($_POST) {
 <body>
 <div class="container">
     <h1>Get in touch!</h1>
-    <form method = "post">
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <fieldset class ="form-group">
             <label for="email">Email address</label>
             <input type="email" class="form-control" name="email">
