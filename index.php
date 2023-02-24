@@ -19,7 +19,7 @@ if($_POST){
         $error .= "Content is required here.<br>";
     }
 //check if email address is correct format
-if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+if($_POST["email"] && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) === false) {
     $error .= "The email address is invalid.<br>";
 }    
 
@@ -60,7 +60,7 @@ else {//email address is good
 <div class="container">
     <h1>Get in touch!</h1>
     <div id="error"><?php echo $error.$successMessage; ?></div>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <form method="post">
         <fieldset class ="form-group">
             <label for="email">Email address</label>
             <input type="email" class="form-control" id="email" name="email">
